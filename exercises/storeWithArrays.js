@@ -12,12 +12,13 @@ let process = require('process');
 /**
  * Creates and returns a new user (as an array).
  */
-function newUser(firstName, lastName, budget) {
+function newUser(firstName, lastName, budget, email) {
   let user = [];
 
   user[0] = firstName;
   user[1] = lastName;
   user[2] = budget;
+  user[3] = email;
 
   return user;
 }
@@ -47,10 +48,10 @@ if (sofa[1] <= user[2]){
 }
 
 let allUsers = [
-  newUser('Alyssa', 'Morris', 1800.00),
-  newUser('Mindy', 'Weaver', 200.00),
-  newUser('Louis', 'Washington', 850.00),
-  newUser('Kevin', 'Isaacs', 80.00),
+  newUser('Alyssa', 'Morris', 1800.00, 'alyssaMorris@gmail.com' ),
+  newUser('Mindy', 'Weaver', 200.00, 'MindyWeaver@gmail.com'),
+  newUser('Louis', 'Washington', 850.00, 'LouisWashington@gmail,com'),
+  newUser('Kevin', 'Isaacs', 80.00, 'KevinIsaacs@gmail.com'),
 ];
 
 let allSofas = [
@@ -70,6 +71,8 @@ for (let user of allUsers) {
   if (userCanAffordSofa(user, sofa)) {
     console.log('Congratulations!');
     console.log(`A ${sofa[0]} costs ${sofa[1]}, which is within your budget of ${user[2]}!`);
+    console.log();
+    console.log(`We will email you with further action required for checkout at ${user[3]}`);
   } else {
     console.log(`Sorry, ${user[0]}, but you can't afford a ${sofa[1]}.`);
     console.log(`Your budget is ${user[2]}, but a ${sofa[0]} costs ${sofa[1]}.`);
