@@ -53,9 +53,13 @@ let allUsers = [
   newUser('Kevin', 'Isaacs', 80.00),
 ];
 
-let sofa = newSofa('Nice Sofa', 800.00);
+let allSofas = [
+  newSofa('Nice Sofa', 800.00),
+  newSofa('Big Sofa', 500),
+  newSofa('Sofa for broke people', 20) ];
 
 for (let user of allUsers) {
+  for (let sofa of allSofas){
   console.log('--------------------');
   console.log();
 
@@ -67,11 +71,12 @@ for (let user of allUsers) {
     console.log('Congratulations!');
     console.log(`A ${sofa[0]} costs ${sofa[1]}, which is within your budget of ${user[2]}!`);
   } else {
-    console.log(`Sorry, ${user[0]}, but you can't afford a ${sofa[0]}.`);
+    console.log(`Sorry, ${user[0]}, but you can't afford a ${sofa[1]}.`);
     console.log(`Your budget is ${user[2]}, but a ${sofa[0]} costs ${sofa[1]}.`);
   }
 
   console.log();
+}
 }
 
 console.log('--------------------');
